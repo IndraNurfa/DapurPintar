@@ -24,7 +24,7 @@ Chatbot ini ditujukan untuk siapa saja yang ingin memasak di rumah, mulai dari p
 Clone repository:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/IndraNurfa/DapurPintar.git
 cd DapurPintar
 ```
 
