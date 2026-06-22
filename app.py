@@ -22,16 +22,34 @@ st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=JetBrains+Mono:wght@400&display=swap');
 
-*, *::before, *::after { box-sizing: border-box; }
+:root {
+    color-scheme: light;
+}
 
-html, body, .stApp {
-    background-color: #FBFBFA !important;
-    font-family: 'DM Sans', 'Helvetica Neue', Arial, sans-serif;
-    color: #2F3437;
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
     color-scheme: light !important;
 }
 
-header[data-testid="stHeader"], footer, #MainMenu { display: none !important; }
+html,
+body,
+.stApp,
+[data-testid="stAppViewContainer"],
+[data-testid="stMain"],
+section.main,
+[data-testid="stSidebar"] {
+    background: #FBFBFA !important;
+    color: #2F3437;
+    font-family: 'DM Sans', 'Helvetica Neue', Arial, sans-serif;
+}
+
+header[data-testid="stHeader"],
+footer,
+#MainMenu {
+    display: none !important;
+}
 
 .block-container {
     max-width: 760px !important;
@@ -39,142 +57,158 @@ header[data-testid="stHeader"], footer, #MainMenu { display: none !important; }
     margin: 0 auto;
 }
 
-/* ── Header ── */
+/* Header */
+
 .dp-eyebrow {
     display: inline-block;
-    font-size: 0.67rem;
+    font-size: .67rem;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: .08em;
     color: #346538;
     background: #EDF3EC;
     padding: 3px 10px;
     border-radius: 9999px;
-    margin-bottom: 0.6rem;
-    font-family: 'DM Sans', sans-serif;
+    margin-bottom: .6rem;
 }
+
 .dp-title {
-    font-family: 'Newsreader', 'Playfair Display', Georgia, serif;
+    font-family: 'Newsreader', serif;
     font-size: 2rem;
     font-weight: 600;
-    letter-spacing: -0.03em;
+    letter-spacing: -.03em;
     line-height: 1.1;
     color: #111111;
-    margin: 0 0 0.35rem;
+    margin-bottom: .35rem;
 }
+
 .dp-subtitle {
-    font-size: 0.85rem;
+    font-size: .85rem;
     color: #787774;
     line-height: 1.6;
-    margin: 0 0 1.5rem;
+    margin-bottom: 1.5rem;
 }
+
 .dp-divider {
     border: none;
     border-top: 1px solid #EAEAEA;
-    margin: 0 0 2rem;
+    margin-bottom: 2rem;
 }
 
-/* ── Chat messages ── */
+/* Chat */
+
 [data-testid="stChatMessage"] {
     background: #FFFFFF !important;
     border: 1px solid #EAEAEA !important;
     border-radius: 8px !important;
     padding: 14px 18px !important;
     margin-bottom: 8px !important;
-    box-shadow: none !important;
-    animation: fadeUp 400ms cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation: fadeUp .4s cubic-bezier(.16,1,.3,1) both;
 }
+
 [data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarUser"]) {
     background: #F7F6F3 !important;
 }
+
+[data-testid="stChatMessageAvatarUser"],
+[data-testid="stChatMessageAvatarAssistant"] {
+    display: none !important;
+}
+
 [data-testid="stChatMessage"] p,
 [data-testid="stChatMessage"] li,
 [data-testid="stChatMessage"] span {
-    font-family: 'DM Sans', 'Helvetica Neue', sans-serif !important;
-    font-size: 0.9375rem !important;
+    font-size: .9375rem !important;
     line-height: 1.65 !important;
     color: #2F3437 !important;
 }
+
 [data-testid="stChatMessage"] strong {
     color: #111111 !important;
     font-weight: 500 !important;
 }
+
 [data-testid="stChatMessage"] code {
-    font-family: 'JetBrains Mono', 'SF Mono', monospace !important;
-    font-size: 0.82rem !important;
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: .82rem !important;
     background: #F7F6F3 !important;
     border: 1px solid #EAEAEA !important;
     border-radius: 4px !important;
     padding: 1px 6px !important;
     color: #1F6C9F !important;
 }
-[data-testid="stChatMessageAvatarUser"],
-[data-testid="stChatMessageAvatarAssistant"] { display: none !important; }
 
-/* ── Chat input ── */
+/* Chat input */
+
 [data-testid="stChatInputContainer"],
 [data-testid="stChatInputContainer"] > div,
 [data-testid="stChatInputContainer"] > div > div {
     background: #FFFFFF !important;
     box-shadow: none !important;
 }
+
 [data-testid="stChatInputContainer"] {
     border: 1px solid #EAEAEA !important;
     border-radius: 6px !important;
 }
+
 [data-testid="stChatInput"] textarea {
-    font-family: 'DM Sans', sans-serif !important;
-    font-size: 0.9rem !important;
-    color: #111111 !important;
     background: #FFFFFF !important;
-    caret-color: #111111 !important;
-}
-[data-testid="stChatInput"] textarea::placeholder { color: #ADADAD !important; }
-[data-testid="stChatInputContainer"] button {
-    background: transparent !important;
-    color: #787774 !important;
-    border: none !important;
-    box-shadow: none !important;
+    color: #111111 !important;
+    font-size: .9rem !important;
 }
 
-/* ── Text inputs ── */
+[data-testid="stChatInput"] textarea::placeholder {
+    color: #ADADAD !important;
+}
+
+[data-testid="stChatInputContainer"] button {
+    background: transparent !important;
+    border: none !important;
+    color: #787774 !important;
+}
+
+/* Text input */
+
 .stTextInput input {
     border: 1px solid #EAEAEA !important;
     border-radius: 6px !important;
     background: #FFFFFF !important;
-    font-family: 'DM Sans', sans-serif !important;
-    font-size: 0.9rem !important;
     color: #111111 !important;
-    box-shadow: none !important;
     padding: 10px 14px !important;
 }
+
 .stTextInput input:focus {
     border-color: #ADADAD !important;
-    outline: none !important;
     box-shadow: none !important;
 }
+
 .stTextInput label {
     color: #787774 !important;
-    font-size: 0.82rem !important;
-    font-family: 'DM Sans', sans-serif !important;
+    font-size: .82rem !important;
 }
 
-/* ── Button ── */
+/* Button */
+
 .stButton > button {
     background: #111111 !important;
     color: #FFFFFF !important;
     border: none !important;
     border-radius: 4px !important;
-    font-family: 'DM Sans', sans-serif !important;
-    font-size: 0.85rem !important;
-    font-weight: 500 !important;
     padding: 8px 20px !important;
-    box-shadow: none !important;
-    transition: background 200ms ease, transform 120ms ease !important;
+    font-size: .85rem !important;
+    transition: transform .12s ease;
 }
-.stButton > button:hover { background: #333333 !important; }
-.stButton > button:active { transform: scale(0.98) !important; }
 
-/* ── API key card ── */
+.stButton > button:hover {
+    background: #111111 !important;
+}
+
+.stButton > button:active {
+    transform: scale(.98);
+}
+
+/* API key card */
+
 .dp-key-card {
     background: #FFFFFF;
     border: 1px solid #EAEAEA;
@@ -182,32 +216,34 @@ header[data-testid="stHeader"], footer, #MainMenu { display: none !important; }
     padding: 28px 32px;
     margin-top: 1.5rem;
 }
+
 .dp-key-card h3 {
     font-family: 'Newsreader', serif;
-    font-size: 1.2rem;
-    letter-spacing: -0.02em;
     color: #111111;
-    margin: 0 0 0.4rem;
 }
+
 .dp-key-card p {
-    font-size: 0.85rem;
     color: #787774;
-    margin: 0 0 1.25rem;
-    line-height: 1.5;
+    font-size: .85rem;
 }
 
-/* ── Scrollbar ── */
-::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: #DDDDD9; border-radius: 2px; }
+/* Scrollbar */
 
-/* ── Animations ── */
-@keyframes fadeUp {
-    from { opacity: 0; transform: translateY(10px); }
-    to   { opacity: 1; transform: translateY(0); }
+::-webkit-scrollbar {
+    width: 4px;
 }
-            
-/* ── Thinking indicator ── */
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #DDDDD9;
+    border-radius: 2px;
+}
+
+/* Thinking indicator */
+
 .thinking-wrapper {
     width: 100%;
     display: flex;
@@ -217,7 +253,6 @@ header[data-testid="stHeader"], footer, #MainMenu { display: none !important; }
 
 .thinking-indicator {
     display: flex;
-    align-items: center;
     gap: 6px;
 }
 
@@ -237,8 +272,22 @@ header[data-testid="stHeader"], footer, #MainMenu { display: none !important; }
     animation-delay: .4s;
 }
 
+/* Animations */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 @keyframes dpBounce {
-    0%, 80%, 100% {
+    0%,80%,100% {
         transform: scale(.7);
         opacity: .35;
     }
@@ -247,28 +296,6 @@ header[data-testid="stHeader"], footer, #MainMenu { display: none !important; }
         transform: scale(1);
         opacity: 1;
     }
-}
-
-[data-testid="stAppViewContainer"] {
-    background: #FBFBFA !important;
-}
-
-[data-testid="stMain"] {
-    background: #FBFBFA !important;
-}
-
-section.main {
-    background: #FBFBFA !important;
-}
-
-[data-testid="stSidebar"] {
-    background: #FBFBFA !important;
-}
-
-input,
-textarea,
-button {
-    color-scheme: light !important;
 }
 
 </style>
@@ -344,7 +371,12 @@ client = ChatGroq(**LLM_CONFIG)
 
 # ─── Chat History Init ───────────────────────────────────────────────────────────
 if "chat_history" not in st.session_state:
-    st.session_state["chat_history"] = [SystemMessage(SYSTEM_PROMPT)]
+    st.session_state["chat_history"] = [
+        SystemMessage(SYSTEM_PROMPT),
+        AIMessage(
+            "Halo! Saya DapurPintar. Tanyakan resep, teknik memasak, atau ide menu dari bahan yang kamu punya."
+        )
+    ]
 
 # ─── Render History ──────────────────────────────────────────────────────────────
 for msg in st.session_state["chat_history"]:
